@@ -53,6 +53,7 @@ const AppContextProvider = (props) => {
   };
 
   const logout = () => {
+    console.log("[AppContext] logout() called. Clearing token and user state.");
     localStorage.removeItem("token");
     setToken(null);
     setUser(null);
@@ -63,6 +64,16 @@ const AppContextProvider = (props) => {
       loadCreditsData();
     }
   }, [token]);
+
+  // Debug: Log token changes
+  useEffect(() => {
+    console.log("[AppContext] Token state changed:", token);
+  }, [token]);
+
+  // Debug: Log user changes
+  useEffect(() => {
+    console.log("[AppContext] User state changed:", user);
+  }, [user]);
 
   const value = {
     user,

@@ -20,7 +20,7 @@ const Testimonials = () => {
         {testimonialsData.map((testimonial, index) => (
           <div
             key={index}
-            className="bg-white/20 p-12 rounded-lg shadow-md order w-80 m-auto cursor-pointer hover:scale-[1.02] transition-all"
+            className="bg-white/40 backdrop-blur-md p-12 rounded-lg shadow-lg border border-white/20 w-80 m-auto cursor-pointer hover:scale-[1.02] transition-all"
           >
             <div className="flex flex-col items-center">
               <img
@@ -28,8 +28,8 @@ const Testimonials = () => {
                 alt=""
                 className="rounded-full w-14"
               />
-              <h2 className="text-x1 font-semibold mt-3">{testimonial.name}</h2>
-              <p className="tex-gray-500 mb-4">{testimonial.role}</p>
+              <h2 className="text-x1 font-semibold mt-3 text-white">{testimonial.name}</h2>
+              <p className="text-gray-300 mb-4">{testimonial.role}</p>
               <div className="flex mb-4">
                 {Array(testimonial.stars)
                   .fill()
@@ -37,7 +37,7 @@ const Testimonials = () => {
                     <img key={index} src={assets.rating_star} alt="" />
                   ))}
               </div>
-              <p className="text-center text-sm text-gray-600">
+              <p className="text-center text-base text-white drop-shadow-sm">
                 {testimonial.text}
               </p>
             </div>

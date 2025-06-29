@@ -1,106 +1,110 @@
 import React, { useContext } from "react";
 import { assets } from "../assets/assets";
-import { delay, motion } from "motion/react";
-import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
+import { motion } from "motion/react";
 
 const Header = () => {
   const { user, setShowLogin } = useContext(AppContext);
-  const navigate = useNavigate();
 
-  const onClickHandler = () => {
-    if (user) {
-      navigate("/result");
-    } else {
-      setShowLogin(true);
-    }
-  };
   return (
-    <motion.div
-      className="flex flex-col items-center justify-center text-center my-20"
-      initial={{ opacity: 0.2, y: 100 }}
-      transition={{ duration: 1 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+    <motion.section 
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="relative min-h-screen flex items-center justify-center px-6 py-20"
     >
-      <motion.div
-        className="text-stone-500 inline-flex text-center gap-2 bg-white px-6 py-1 rounded-full border border-neutral-500"
-        initial={{ opacity: 0.2, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
-      >
-        <p>Best text to image generator</p>
-        <img src={assets.star_icon} alt=" " />
-      </motion.div>
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-600 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-blue-600 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse delay-1000"></div>
+        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-pink-600 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse delay-2000"></div>
+      </div>
 
-      <motion.h1 className="text-4x1 max-w-[300px] sm:text-7xl sm:max-w-[600px] mx-auto mt-10 text-center">
-        Turn text to{" "}
-        <span
-          className="text-blue-600"
-          initial={{ opacity: 0.2, y: -20 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 2 }}
+      <div className="relative z-10 max-w-6xl mx-auto text-center">
+        {/* Main Heading */}
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-5xl md:text-7xl font-bold mb-6 text-shadow"
         >
-          image
-        </span>
-        , in seconds.
-      </motion.h1>
+          <span className="text-gradient">Transform</span> Your Ideas
+          <br />
+          Into <span className="text-gradient">Stunning</span> Images
+        </motion.h1>
 
-      <motion.p
-        className="text-center max-w-xl mx-auto ,mt-5"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6, duration: 0.8 }}
-      >
-        Unleash your creativity with AI. Turn your imagination into visual art
-        in seconds-just type, and watch the magic happen.
-      </motion.p>
+        {/* Subtitle */}
+        <motion.p 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="text-xl md:text-2xl text-secondary mb-8 max-w-3xl mx-auto leading-relaxed"
+        >
+          Create breathtaking visuals with AI-powered image generation. 
+          Turn your imagination into reality with just a few words.
+        </motion.p>
 
-      <motion.button
-        onClick={onClickHandler}
-        className="sm:text-lg text-white bg-black w-auto mt-8 px-12 py-2.5 flex items-center gap-2 rounded-full "
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          defualt: { duration: 0.2 },
-          opacity: { delay: 0.8, duration: 1 },
-        }}
-      >
-        Generate Images
-        <img className="h-6" src={assets.star_group} alt=" " />
-      </motion.button>
+        {/* CTA Buttons */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+        >
+          {user ? (
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => window.location.href = '/result'}
+              className="px-8 py-4 rounded-xl btn-primary text-white font-semibold text-lg hover-lift neon-glow"
+            >
+              Start Creating Now
+            </motion.button>
+          ) : (
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setShowLogin(true)}
+              className="px-8 py-4 rounded-xl btn-primary text-white font-semibold text-lg hover-lift neon-glow"
+            >
+              Get Started Free
+            </motion.button>
+          )}
+          
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => window.location.href = '/buy'}
+            className="px-8 py-4 rounded-xl btn-secondary font-semibold text-lg hover-lift"
+          >
+            View Pricing
+          </motion.button>
+        </motion.div>
 
-      <motion.div
-        intial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="flex flex-wrap justify-center mt-16 gap-3"
-      >
-        {Array(6)
-          .fill("")
-          .map((item, index) => (
-            <motion.img
-              whileHover={{ scale: 1.05, duration: 0.1 }}
-              className="rounded hover:scale-105 transition-allduration-300 cursor-pointer max-sm:w-10"
-              src={index % 2 === 0 ? assets.sample_img_2 : assets.sample_img_1}
-              alt=""
-              key={index}
-              width={70}
-            />
-          ))}
-      </motion.div>
+        {/* Stats */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+        >
+          <div className="glass-effect rounded-xl p-6 card-hover">
+            <div className="text-3xl font-bold text-gradient mb-2">10K+</div>
+            <div className="text-secondary">Images Generated</div>
+          </div>
+          <div className="glass-effect rounded-xl p-6 card-hover">
+            <div className="text-3xl font-bold text-gradient mb-2">5K+</div>
+            <div className="text-secondary">Happy Users</div>
+          </div>
+          <div className="glass-effect rounded-xl p-6 card-hover">
+            <div className="text-3xl font-bold text-gradient mb-2">99%</div>
+            <div className="text-secondary">Satisfaction Rate</div>
+          </div>
+        </motion.div>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.8 }}
-        className="mt-2 text-netural-600"
-      >
-        Generated images from imagify
-      </motion.p>
-    </motion.div>
+        {/* Floating Elements */}
+        
+      </div>
+    </motion.section>
   );
 };
 

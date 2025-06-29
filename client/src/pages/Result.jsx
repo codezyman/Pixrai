@@ -70,14 +70,14 @@ const Result = () => {
             onClick={() => {
               setIsImageLoaded(false);
             }}
-            className="bg-transparent border border-zinc-900 text-black px-8 py-3 rounded-full cursor-pointer"
+            className="bg-white border border-purple-500 text-purple-700 px-8 py-3 rounded-full cursor-pointer font-semibold shadow-sm hover:bg-purple-50 transition-colors"
           >
             Generate Another
           </p>
           <a
             href={image}
             download
-            className="bg-zinc-900 px-10 py-3 rounded-full cursor-pointer"
+            className="bg-gradient-to-r from-purple-500 to-pink-500 px-10 py-3 rounded-full cursor-pointer font-semibold shadow-md hover:from-pink-500 hover:to-purple-500 transition-colors"
           >
             Download
           </a>

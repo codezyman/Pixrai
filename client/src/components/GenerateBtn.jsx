@@ -25,7 +25,7 @@ const GenerateBtn = () => {
       viewport={{ once: true }}
       className="pb-16 text-center"
     >
-      <h1 className="text-2xl md:text=3xl lg:text-4xl mt-4 font-semibold text-neutral-800 py-6 md:py-16">
+      <h1 className="text-2xl md:text=3xl lg:text-4xl mt-4 font-semibold text-white text-shadow py-6 md:py-16">
         See the magic. Try now
       </h1>
 

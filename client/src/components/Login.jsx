@@ -53,101 +53,130 @@ const Login = () => {
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
-    ("");
-
     return () => {
       document.body.style.overflow = "unset";
     };
   }, []);
+
   return (
-    <div className="fixed top-0 left-0 right-0 bottom-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center">
+    <div className="fixed top-0 left-0 right-0 bottom-0 z-50 backdrop-blur-md bg-black/50 flex justify-center items-center p-4">
       <motion.form
         onSubmit={onSubmitHandler}
-        initial={{ opacity: 0.2, y: 100 }}
-        transition={{ duration: 1 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="relative bg-white p-10 rounded-xl text-slate-500"
+        initial={{ opacity: 0, scale: 0.9, y: 50 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        className="glass-effect rounded-2xl p-8 max-w-md w-full"
       >
-        <h1 className="text-center text-2xl text-neutral-700 font-medium">
-          {state}
-        </h1>
-        <p className="text-sm">Welcome back! Please sign in to continue</p>
+        {/* Header */}
+        <div className="text-center mb-8">
+          <div className="w-16 h-16 rounded-full gradient-bg flex items-center justify-center mx-auto mb-4">
+            <img src={assets.logo_icon} alt="" className="w-8 h-8" />
+          </div>
+          <h1 className="text-2xl font-bold text-white mb-2">
+            {state}
+          </h1>
+          <p className="text-gray-400">
+            {state === "Login" ? "Welcome back! Please sign in to continue" : "Create your account to get started"}
+          </p>
+        </div>
 
-        {state !== "Login" && (
-          <div className="border px-6 py-2 flex items-center gap-2 rounded-full mt-4">
-            <img src={assets.user_icon} alt="" />
+        {/* Form Fields */}
+        <div className="space-y-4">
+          {state !== "Login" && (
+            <div className="relative">
+              <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
+                <img src={assets.profile_icon} alt="" className="w-5 h-5" />
+              </div>
+              <input
+                onChange={(e) => setName(e.target.value)}
+                value={name}
+                type="text"
+                className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 transition-colors"
+                placeholder="Full Name"
+                required
+              />
+            </div>
+          )}
+
+          <div className="relative">
+            <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
+              <img src={assets.email_icon} alt="" className="w-5 h-5" />
+            </div>
             <input
-              onChange={(e) => setName(e.target.value)}
-              value={name}
-              type="text"
-              className="outline-none text-sm"
-              placeholder="Full Name"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              type="email"
+              className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 transition-colors"
+              placeholder="Email address"
               required
             />
           </div>
-        )}
 
-        <div className="border px-6 py-2 flex items-center gap-2 rounded-full mt-5">
-          <img src={assets.email_icon} alt="" />
-          <input
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            type="email"
-            className="outline-none text-sm"
-            placeholder="Email id"
-            required
-          />
+          <div className="relative">
+            <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
+              <img src={assets.lock_icon} alt="" className="w-5 h-5" />
+            </div>
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              type="password"
+              className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 transition-colors"
+              placeholder="Password"
+              required
+            />
+          </div>
         </div>
 
-        <div className="border px-6 py-2 flex items-center gap-2 rounded-full mt-4">
-          <img src={assets.lock_icon} alt="" />
-          <input
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            type="password"
-            className="outline-none text-sm"
-            placeholder="Password"
-            required
-          />
-        </div>
-
-        <p className="text-sm text-blue-600 my-4 cursor-pointer">
-          Forgot Password?
-        </p>
-
-        <button className="bg-blue-600 w-full text-white py-2 rounded-full">
-          {state === "Login" ? "Login" : "Create Account"}
-        </button>
-
-        {state === "Login" ? (
-          <p className="mt-5 text-center">
-            Don't have an account?
-            <span
-              className="text-blue-600 cursor-pointer"
-              onClick={() => setState("Sign Up")}
-            >
-              Sign up{" "}
-            </span>
-          </p>
-        ) : (
-          <p className="mt-5 text-center">
-            Already have an account?
-            <span
-              className="text-blue-600 cursor-pointer"
-              onClick={() => setState("Login")}
-            >
-              Login
-            </span>
+        {/* Forgot Password */}
+        {state === "Login" && (
+          <p className="text-purple-400 text-sm mt-4 cursor-pointer hover:text-purple-300 transition-colors">
+            Forgot Password?
           </p>
         )}
 
-        <img
+        {/* Submit Button */}
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          type="submit"
+          className="w-full mt-6 py-3 rounded-xl gradient-bg text-white font-semibold hover-lift"
+        >
+          {state === "Login" ? "Sign In" : "Create Account"}
+        </motion.button>
+
+        {/* Toggle State */}
+        <div className="mt-6 text-center">
+          {state === "Login" ? (
+            <p className="text-gray-400">
+              Don't have an account?{" "}
+              <span
+                className="text-purple-400 cursor-pointer hover:text-purple-300 transition-colors"
+                onClick={() => setState("Sign Up")}
+              >
+                Sign up
+              </span>
+            </p>
+          ) : (
+            <p className="text-gray-400">
+              Already have an account?{" "}
+              <span
+                className="text-purple-400 cursor-pointer hover:text-purple-300 transition-colors"
+                onClick={() => setState("Login")}
+              >
+                Sign in
+              </span>
+            </p>
+          )}
+        </div>
+
+        {/* Close Button */}
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
           onClick={() => setShowLogin(false)}
-          src={assets.cross_icon}
-          alt=""
-          className="absolute top-5 right-5 cursor-pointer"
-        />
+          className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+        >
+          <img src={assets.cross_icon} alt="" className="w-6 h-6" />
+        </motion.button>
       </motion.form>
     </div>
   );

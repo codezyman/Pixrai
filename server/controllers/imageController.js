@@ -66,6 +66,7 @@ export const generateImage = async (req, res) => {
       message: "Image Generated",
       credits: updatedUser.creditBalance,
       resultImage,
+      us: { name: updatedUser.name },
     });
   } catch (error) {
     console.error("Error in generateImage:", error.message);
