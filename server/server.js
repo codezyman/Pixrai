@@ -11,8 +11,16 @@ import paymentRouter from "./routes/paymentRoutes.js";
 const PORT = process.env.PORT || 4000;
 const app = express();
 
+const allowedOrigins = [
+  'https://myfrontend.onrender.com', // Replace with your actual frontend URL
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
+
 app.use(express.json());
-app.use(cors());
 
 await connectDB();
 
