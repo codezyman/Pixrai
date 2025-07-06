@@ -111,7 +111,7 @@ const FeaturesPage = () => {
               >
                 <h3 className="text-2xl font-bold mb-4 text-white">📱 Cross-Platform</h3>
                 <p className="text-secondary leading-relaxed mb-4">
-                  Access Pixrai from anywhere, on any device, with a consistent experience.
+                  Access pixrai from anywhere, on any device, with a consistent experience.
                 </p>
                 <ul className="text-secondary space-y-2">
                   <li>• Responsive web design</li>
@@ -201,7 +201,7 @@ const FeaturesPage = () => {
               Ready to <span className="text-gradient">Get Started</span>?
             </h3>
             <p className="text-secondary mb-6 leading-relaxed">
-              Join thousands of creators who are already using Pixrai to bring their ideas to life.
+              Join thousands of creators who are already using pixrai to bring their ideas to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
