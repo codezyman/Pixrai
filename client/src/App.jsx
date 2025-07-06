@@ -14,6 +14,7 @@ import { AppContext } from "./context/AppContext";
 
 const App = () => {
   const { showLogin } = useContext(AppContext);
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   return (
     <div className="min-h-screen">
       <ToastContainer 
