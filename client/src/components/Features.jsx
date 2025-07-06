@@ -100,7 +100,7 @@ const Features = () => {
               Ready to <span className="text-gradient">Transform</span> Your Ideas?
             </h3>
             <p className="text-secondary mb-6 leading-relaxed">
-              Join thousands of creators who are already using Pixora to bring their imagination to life.
+              Join thousands of creators who are already using pixrai to bring their imagination to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
