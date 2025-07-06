@@ -1,4 +1,16 @@
 import jwt from "jsonwebtoken";
+const cors = require('cors');
+
+// Replace this with your actual frontend URL
+const allowedOrigins = [
+  'https://myfrontend.onrender.com',
+];
+
+// Enable CORS for your frontend
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true, // if you use cookies or authentication
+}));
 
 const userAuth = async (req, res, next) => {
   // Debug: Log all headers
