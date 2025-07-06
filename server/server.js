@@ -13,6 +13,7 @@ const app = express();
 
 const allowedOrigins = [
   'https://myfrontend.onrender.com', // Replace with your actual frontend URL
+  'http://localhost:5173', // Allow local development
 ];
 
 app.use(cors({
