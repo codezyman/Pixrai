@@ -64,21 +64,21 @@ export const testimonialsData = [
     name: "Donald Jackman",
     role: "Graphic Designer",
     stars: 5,
-    text: `I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`,
+    text: `Pixrai has completely transformed my workflow. The AI image generation is fast, reliable, and the results are stunning. Highly recommended for any designer!`,
   },
   {
     image: profile_img_2,
     name: "Richard Nelson",
     role: "Content Creator",
     stars: 4,
-    text: `I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`,
+    text: `As a content creator, Pixrai helps me create unique visuals for my social media posts in seconds. It's intuitive and saves me so much time!`,
   },
   {
     image: profile_img_1,
-    name: "Donald Jackman",
-    role: " Graphic Designer",
+    name: "Emily Carter",
+    role: "Marketing Specialist",
     stars: 5,
-    text: `I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`,
+    text: `I use Pixrai for all my marketing campaigns. The quality and variety of images I can generate is unmatched. My team loves it!`,
   },
 ];
 

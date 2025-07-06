@@ -37,12 +37,12 @@ const userAuth = async (req, res, next) => {
     } else {
       return res.json({
         success: false,
-        message: "Not Authorized. Login Again",
+        message: "Not Authorized. Login First",
       });
     }
   } catch (error) {
     console.error("JWT verification error:", error.message);
-    return res.json({ success: false, message: error.message });
+    return res.json({ success: false, message: "Not Authorized. Login First" });
   }
 };
 

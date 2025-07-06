@@ -21,7 +21,7 @@ const Navbar = () => {
           <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center">
             <img src={assets.logo_icon} alt="Logo" className="w-6 h-6" />
           </div>
-          <span className="text-2xl font-bold text-gradient">Pixora</span>
+          <span className="text-2xl font-bold text-gradient">Pixrai</span>
         </motion.div>
 
         {/* Navigation Links */}

@@ -16,7 +16,7 @@ const FeaturesPage = () => {
             <span className="text-gradient">Features</span> & Capabilities
           </h1>
           <p className="text-xl text-secondary max-w-3xl mx-auto leading-relaxed">
-            Discover everything Pixora has to offer. From AI-powered image generation 
+            Discover everything Pixrai has to offer. From AI-powered image generation 
             to professional tools designed for creators.
           </p>
         </motion.div>
@@ -111,7 +111,7 @@ const FeaturesPage = () => {
               >
                 <h3 className="text-2xl font-bold mb-4 text-white">📱 Cross-Platform</h3>
                 <p className="text-secondary leading-relaxed mb-4">
-                  Access Pixora from anywhere, on any device, with a consistent experience.
+                  Access Pixrai from anywhere, on any device, with a consistent experience.
                 </p>
                 <ul className="text-secondary space-y-2">
                   <li>• Responsive web design</li>
@@ -201,7 +201,7 @@ const FeaturesPage = () => {
               Ready to <span className="text-gradient">Get Started</span>?
             </h3>
             <p className="text-secondary mb-6 leading-relaxed">
-              Join thousands of creators who are already using Pixora to bring their ideas to life.
+              Join thousands of creators who are already using Pixrai to bring their ideas to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button

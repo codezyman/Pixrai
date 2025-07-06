@@ -9,12 +9,27 @@ const Login = () => {
   const [state, setState] = useState("Login");
   const { setShowLogin, backendUrl, setToken, setUser } =
     useContext(AppContext);
-  const [name, setName] = useState("madzy");
-  const [email, setEmail] = useState("madzy@gmail.com");
-  const [password, setPassword] = useState("abcde");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const validate = () => {
+    if (!email.match(/^[^@]+@[^@]+\.[^@]+$/)) {
+      setError("Please enter a valid email address.");
+      return false;
+    }
+    if (!password || password.length < 6) {
+      setError("Password must be at least 6 characters.");
+      return false;
+    }
+    setError("");
+    return true;
+  };
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    if (!validate()) return;
     try {
       if (state === "Login") {
         const { data } = await axios.post(backendUrl + "/api/user/login", {
@@ -81,6 +96,9 @@ const Login = () => {
 
         {/* Form Fields */}
         <div className="space-y-4">
+          {error && (
+            <div className="text-red-400 text-sm mb-2 text-center">{error}</div>
+          )}
           {state !== "Login" && (
             <div className="relative">
               <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
