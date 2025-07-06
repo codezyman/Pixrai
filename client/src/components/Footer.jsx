@@ -13,7 +13,7 @@ const Footer = () => {
               <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center">
                 <img src={assets.logo_icon} alt="Logo" className="w-6 h-6" />
               </div>
-              <span className="text-2xl font-bold text-gradient">Pixora</span>
+              <span className="text-2xl font-bold text-gradient">pixrai</span>
             </div>
             <p className="text-secondary mb-6 max-w-md leading-relaxed">
               Transform your ideas into stunning images with AI-powered generation. 
@@ -70,7 +70,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted text-sm">
-            © 2025 Pixora. All rights reserved.
+            © 2025 pixrai. All rights reserved.
           </p>
           <p className="text-muted text-sm mt-2 md:mt-0">
             Made with ❤️ for creators worldwide
