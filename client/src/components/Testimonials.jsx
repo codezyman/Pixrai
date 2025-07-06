@@ -20,7 +20,7 @@ const Testimonials = () => {
         {testimonialsData.map((testimonial, index) => (
           <div
             key={index}
-            className="bg-white/40 backdrop-blur-md p-12 rounded-lg shadow-lg border border-white/20 w-80 m-auto cursor-pointer hover:scale-[1.02] transition-all"
+            className="bg-white/40 backdrop-blur-md p-12 rounded-lg shadow-lg border border-white/20 w-80 min-h-[400px] m-auto cursor-pointer hover:scale-[1.02] transition-all flex flex-col justify-between"
           >
             <div className="flex flex-col items-center">
               <img
