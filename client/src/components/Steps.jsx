@@ -81,7 +81,7 @@ const Steps = () => {
               Ready to <span className="text-gradient">Create</span>?
             </h3>
             <p className="text-secondary mb-6 leading-relaxed">
-              Join thousands of creators who are already using Pixora to bring their ideas to life.
+              Join thousands of creators who are already using pixrai to bring their ideas to life.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
